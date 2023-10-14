@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "c0c548f2-b204-419b-a134-ea0ca448c2b0",
+		"name": "TestTicketBooking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "setupShow",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"showNumber\" : 101,\r\n    \"numberOfRow\" : 40,\r\n    \"numberOfSeatsPerRow\" : 11,\r\n    \"cancellationWindow\" : 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:9095/api/v1/adminsetupshow"
+			},
+			"response": []
+		},
+		{
+			"name": "viewShow",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"user1\",\r\n    \"password\":\"pwd1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9095/api/v1/adminviewshow?showNumber=200",
+					"host": [
+						"localhost"
+					],
+					"port": "9095",
+					"path": [
+						"api",
+						"v1",
+						"adminviewshow"
+					],
+					"query": [
+						{
+							"key": "showNumber",
+							"value": "200"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getShowByShowNumber",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9095/api/v1/adminviewshowinfo?showNumber=800",
+					"host": [
+						"localhost"
+					],
+					"port": "9095",
+					"path": [
+						"api",
+						"v1",
+						"adminviewshowinfo"
+					],
+					"query": [
+						{
+							"key": "showNumber",
+							"value": "800"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buyershowquery",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9095/api/v1/buyershowquery?showNumber=200",
+					"host": [
+						"localhost"
+					],
+					"port": "9095",
+					"path": [
+						"api",
+						"v1",
+						"buyershowquery"
+					],
+					"query": [
+						{
+							"key": "showNumber",
+							"value": "200"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bookShow",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"showNumber\":\"200\",\r\n    \"phoneNumber\":\"111111\",\r\n    \"seatsNumbers\":\"A1,A2,A3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9095/api/v1/buyershowbooking",
+					"host": [
+						"localhost"
+					],
+					"port": "9095",
+					"path": [
+						"api",
+						"v1",
+						"buyershowbooking"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "200",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancelShow",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:9095/api/v1/buyershowcancelling?ticketNumber=16972062240232783&phoneNumber=111111",
+					"host": [
+						"localhost"
+					],
+					"port": "9095",
+					"path": [
+						"api",
+						"v1",
+						"buyershowcancelling"
+					],
+					"query": [
+						{
+							"key": "ticketNumber",
+							"value": "16972062240232783"
+						},
+						{
+							"key": "phoneNumber",
+							"value": "111111"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
